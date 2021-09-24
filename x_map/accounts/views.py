@@ -8,11 +8,12 @@ User = get_user_model()
 import json
 
 def home(request):
+  print(dir(request))
   user = request.user
   return HttpResponse(f'Hello {user}')
 
 
-
+@csrf_exempt
 def login_api_handler(request):
   if request.method == 'POST':
     req_data = json.loads(request.body.decode('utf-8'))
@@ -33,7 +34,7 @@ def login_api_handler(request):
     return HttpResponse(json.dumps(response_obj), status=status)
 
 
-
+@csrf_exempt
 def register_api_handler(request):
   if request.method == 'POST':
     req_data = json.loads(request.body.decode('utf-8'))
