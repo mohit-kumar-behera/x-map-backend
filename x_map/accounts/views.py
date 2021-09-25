@@ -7,6 +7,7 @@ from accounts.utils import create_response_obj
 User = get_user_model()
 import json
 
+
 def home(request):
   print(dir(request))
   user = request.user
@@ -15,6 +16,8 @@ def home(request):
 
 @csrf_exempt
 def login_api_handler(request):
+  if request.POST:
+    return HttpResponse('done')
   if request.method == 'POST':
     req_data = json.loads(request.body.decode('utf-8'))
     email = req_data.get('email')
