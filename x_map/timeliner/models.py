@@ -26,11 +26,6 @@ class Location(models.Model):
   timeliner = models.OneToOneField(Timeliner, on_delete=models.CASCADE)
   latitude = models.CharField(max_length=25, null=True, blank=True)
   longitude = models.CharField(max_length=25, null=True, blank=True)
-  road = models.CharField(max_length=255, null=True, blank=True)
-  city = models.CharField(max_length=255, null=True, blank=True)
-  postcode = models.CharField(max_length=6, null=True, blank=True)
-  state = models.CharField(max_length=50, null=True, blank=True)
-  country = models.CharField(max_length=50, null=True, blank=True)
   display_name = models.TextField(null=True, blank=True)
   mapurl = models.URLField(null=True, blank=True)
 
