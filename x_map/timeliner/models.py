@@ -30,7 +30,7 @@ class Location(models.Model):
   mapurl = models.URLField(null=True, blank=True)
 
   def __str__(self):
-    return f'{self.road}, {self.city}, {self.state}'
+    return f'{self.display_name}'
 
   def save(self, *args, **kwargs):
     self.mapurl = f'https://www.google.com/maps/dir//{self.latitude},{self.longitude}'
